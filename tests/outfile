@@ -1,0 +1,443 @@
+test_bookmark_post_invalid_post_id_404 (tests.test_bookmarks.TestBookmarkListEndpoint) ... FAIL
+test_bookmark_post_invalid_post_id_format_400 (tests.test_bookmarks.TestBookmarkListEndpoint) ... FAIL
+test_bookmark_post_missing_post_id_400 (tests.test_bookmarks.TestBookmarkListEndpoint) ... FAIL
+test_bookmark_post_no_duplicates_400 (tests.test_bookmarks.TestBookmarkListEndpoint) ... FAIL
+test_bookmark_post_unauthorized_post_id_404 (tests.test_bookmarks.TestBookmarkListEndpoint) ... FAIL
+test_bookmark_post_valid_request_201 (tests.test_bookmarks.TestBookmarkListEndpoint) ... ERROR
+test_bookmark_post_with_post_id_as_string_still_valid_request_201 (tests.test_bookmarks.TestBookmarkListEndpoint) ... ERROR
+test_bookmarks_get_check_if_data_structure_correct (tests.test_bookmarks.TestBookmarkListEndpoint) ... ok
+test_bookmarks_get_check_if_query_correct (tests.test_bookmarks.TestBookmarkListEndpoint) ... ok
+test_comment_delete_invalid_id_404 (tests.test_comments.TestCommentDetailEndpoint) ... FAIL
+test_comment_delete_invalid_id_format_404 (tests.test_comments.TestCommentDetailEndpoint) ... ok
+test_comment_delete_unauthorized_id_404 (tests.test_comments.TestCommentDetailEndpoint) ... FAIL
+test_comment_delete_valid_200 (tests.test_comments.TestCommentDetailEndpoint) ... ERROR
+test_comment_post_invalid_post_id_404 (tests.test_comments.TestCommentListEndpoint) ... FAIL
+test_comment_post_invalid_post_id_format_400 (tests.test_comments.TestCommentListEndpoint) ... FAIL
+test_comment_post_missing_text_400 (tests.test_comments.TestCommentListEndpoint) ... FAIL
+test_comment_post_unauthorized_post_id_404 (tests.test_comments.TestCommentListEndpoint) ... FAIL
+test_comment_post_valid_request_201 (tests.test_comments.TestCommentListEndpoint) ... FAIL
+test_follower_get_check_data_structure (tests.test_followers.TestFollowerListEndpoint) ... ok
+test_followers_get (tests.test_followers.TestFollowerListEndpoint) ... ok
+test_following_delete_invalid_id_404 (tests.test_following.TestFollowingDetailEndpoint) ... FAIL
+test_following_delete_invalid_id_format_404 (tests.test_following.TestFollowingDetailEndpoint) ... ok
+test_following_delete_unauthorized_id_404 (tests.test_following.TestFollowingDetailEndpoint) ... FAIL
+test_following_delete_valid_200 (tests.test_following.TestFollowingDetailEndpoint) ... FAIL
+test_following_get_check_data_structure (tests.test_following.TestFollowingListEndpoint) ... ok
+test_following_get_check_if_query_correct (tests.test_following.TestFollowingListEndpoint) ... ok
+test_following_post_invalid_user_id_404 (tests.test_following.TestFollowingListEndpoint) ... FAIL
+test_following_post_invalid_user_id_format_400 (tests.test_following.TestFollowingListEndpoint) ... FAIL
+test_following_post_missing_user_id_400 (tests.test_following.TestFollowingListEndpoint) ... FAIL
+test_following_post_no_duplicates_400 (tests.test_following.TestFollowingListEndpoint) ... FAIL
+test_following_post_valid_request_201 (tests.test_following.TestFollowingListEndpoint) ... ERROR
+test_like_post_invalid_post_id_404 (tests.test_like_post.TestLikePostListEndpoint) ... FAIL
+test_like_post_invalid_post_id_format_400 (tests.test_like_post.TestLikePostListEndpoint) ... FAIL
+test_like_post_no_duplicates_400 (tests.test_like_post.TestLikePostListEndpoint) ... FAIL
+test_like_post_unauthorized_post_id_404 (tests.test_like_post.TestLikePostListEndpoint) ... FAIL
+test_like_post_valid_request_201 (tests.test_like_post.TestLikePostListEndpoint) ... FAIL
+test_post_delete (tests.test_posts.TestPostDetailEndpoint) ... ERROR
+test_post_delete_id_does_not_exist_404 (tests.test_posts.TestPostDetailEndpoint) ... FAIL
+test_post_delete_invalid_id_404 (tests.test_posts.TestPostDetailEndpoint) ... ok
+test_post_delete_unauthorized_id_404 (tests.test_posts.TestPostDetailEndpoint) ... ERROR
+test_post_get (tests.test_posts.TestPostDetailEndpoint) ... ok
+test_post_get_id_does_not_exist_404 (tests.test_posts.TestPostDetailEndpoint) ... ok
+test_post_get_invalid_id_404 (tests.test_posts.TestPostDetailEndpoint) ... ok
+test_post_get_unauthorized_id_404 (tests.test_posts.TestPostDetailEndpoint) ... ok
+test_post_patch_blanks_not_overwritten (tests.test_posts.TestPostDetailEndpoint) ... FAIL
+test_post_patch_correct_data_200 (tests.test_posts.TestPostDetailEndpoint) ... FAIL
+test_post_patch_id_does_not_exist_404 (tests.test_posts.TestPostDetailEndpoint) ... FAIL
+test_post_patch_invalid_id_404 (tests.test_posts.TestPostDetailEndpoint) ... ok
+test_post_patch_unauthorized_id_404 (tests.test_posts.TestPostDetailEndpoint) ... ERROR
+test_post_post (tests.test_posts.TestPostListEndpoint) ... FAIL
+test_post_post_bad_data_400_error (tests.test_posts.TestPostListEndpoint) ... FAIL
+test_post_post_image_only (tests.test_posts.TestPostListEndpoint) ... FAIL
+test_posts_get_bad_limit_argument_handled (tests.test_posts.TestPostListEndpoint) ... ok
+test_posts_get_defaults_to_20 (tests.test_posts.TestPostListEndpoint) ... ok
+test_posts_get_has_required_data (tests.test_posts.TestPostListEndpoint) ... ok
+test_posts_get_is_authorized (tests.test_posts.TestPostListEndpoint) ... ok
+test_posts_get_limit_argument (tests.test_posts.TestPostListEndpoint) ... ok
+test_profile_get_check_if_query_correct (tests.test_profile.TestProfileEndpoint) ... ok
+test_stories_get_check_data_structure (tests.test_stories.TestStoryListEndpoint) ... ok
+test_stories_get_check_if_query_correct (tests.test_stories.TestStoryListEndpoint) ... ok
+test_suggestions_get_check_if_data_structure_correct (tests.test_suggestions.TestSuggestionsEndpoint) ... ok
+test_suggestions_get_check_if_query_correct (tests.test_suggestions.TestSuggestionsEndpoint) ... ok
+
+======================================================================
+ERROR: test_bookmark_post_valid_request_201 (tests.test_bookmarks.TestBookmarkListEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_bookmarks.py", line 50, in test_bookmark_post_valid_request_201
+    self.assertEqual(new_bookmark.get('post').get('id'), post_id)
+AttributeError: 'NoneType' object has no attribute 'get'
+
+======================================================================
+ERROR: test_bookmark_post_with_post_id_as_string_still_valid_request_201 (tests.test_bookmarks.TestBookmarkListEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_bookmarks.py", line 74, in test_bookmark_post_with_post_id_as_string_still_valid_request_201
+    self.assertEqual(new_bookmark.get('post').get('id'), post_id)
+AttributeError: 'NoneType' object has no attribute 'get'
+
+======================================================================
+ERROR: test_comment_delete_valid_200 (tests.test_comments.TestCommentDetailEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/env/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/hayden/Documents/csci344/homework/homework07/env/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 748, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "comments_pkey"
+DETAIL:  Key (id)=(27) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_comments.py", line 88, in test_comment_delete_valid_200
+    utils.restore_comment_by_id(comment_to_delete)
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/utils.py", line 148, in restore_comment_by_id
+    conn.execute(text(sql))
+  File "/home/hayden/Documents/csci344/homework/homework07/env/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1414, in execute
+    return meth(
+  File "/home/hayden/Documents/csci344/homework/homework07/env/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 486, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/hayden/Documents/csci344/homework/homework07/env/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/hayden/Documents/csci344/homework/homework07/env/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+  File "/home/hayden/Documents/csci344/homework/homework07/env/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/hayden/Documents/csci344/homework/homework07/env/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2326, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/hayden/Documents/csci344/homework/homework07/env/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/hayden/Documents/csci344/homework/homework07/env/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 748, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "comments_pkey"
+DETAIL:  Key (id)=(27) already exists.
+
+[SQL: 
+            INSERT INTO comments(id, post_id, user_id, text, pub_date) 
+            VALUES(27, 10, 12, 'Land catch admit health now speak check throughout dog sense like surface must themselves carry rich social television space reflect physical responsibility book public.', now())
+        ]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+======================================================================
+ERROR: test_following_post_valid_request_201 (tests.test_following.TestFollowingListEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_following.py", line 53, in test_following_post_valid_request_201
+    self.assertEqual(user.get('id'), following.get('id'))
+AttributeError: 'NoneType' object has no attribute 'get'
+
+======================================================================
+ERROR: test_post_delete (tests.test_posts.TestPostDetailEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/env/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/hayden/Documents/csci344/homework/homework07/env/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 748, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "posts_pkey"
+DETAIL:  Key (id)=(106) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_posts.py", line 202, in test_post_delete
+    utils.restore_post_by_id(post_to_delete)
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/utils.py", line 133, in restore_post_by_id
+    conn.execute(text(sql))
+  File "/home/hayden/Documents/csci344/homework/homework07/env/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1414, in execute
+    return meth(
+  File "/home/hayden/Documents/csci344/homework/homework07/env/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 486, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/hayden/Documents/csci344/homework/homework07/env/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/hayden/Documents/csci344/homework/homework07/env/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+  File "/home/hayden/Documents/csci344/homework/homework07/env/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/hayden/Documents/csci344/homework/homework07/env/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2326, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/hayden/Documents/csci344/homework/homework07/env/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/hayden/Documents/csci344/homework/homework07/env/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 748, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "posts_pkey"
+DETAIL:  Key (id)=(106) already exists.
+
+[SQL: 
+            INSERT INTO posts(id, image_url, caption, alt_text, pub_date, user_id) 
+            VALUES(106, 'https://picsum.photos/600/430?id=884', 'Brother can time should director will some stand term southern during hair worker air few thing former home go nor.', 'None', now(), 12)
+        ]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+======================================================================
+ERROR: test_post_delete_unauthorized_id_404 (tests.test_posts.TestPostDetailEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_posts.py", line 218, in test_post_delete_unauthorized_id_404
+    post_no_access = utils.get_post_that_user_cannot_edit_delete(self.current_user.get('id'))
+AttributeError: module 'utils' has no attribute 'get_post_that_user_cannot_edit_delete'
+
+======================================================================
+ERROR: test_post_patch_unauthorized_id_404 (tests.test_posts.TestPostDetailEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_posts.py", line 187, in test_post_patch_unauthorized_id_404
+    post_no_access = utils.get_post_that_user_cannot_edit_delete(self.current_user.get('id'))
+AttributeError: module 'utils' has no attribute 'get_post_that_user_cannot_edit_delete'
+
+======================================================================
+FAIL: test_bookmark_post_invalid_post_id_404 (tests.test_bookmarks.TestBookmarkListEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_bookmarks.py", line 109, in test_bookmark_post_invalid_post_id_404
+    self.assertEqual(response.status_code, 404)
+AssertionError: 201 != 404
+
+======================================================================
+FAIL: test_bookmark_post_invalid_post_id_format_400 (tests.test_bookmarks.TestBookmarkListEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_bookmarks.py", line 101, in test_bookmark_post_invalid_post_id_format_400
+    self.assertEqual(response.status_code, 400)
+AssertionError: 201 != 400
+
+======================================================================
+FAIL: test_bookmark_post_missing_post_id_400 (tests.test_bookmarks.TestBookmarkListEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_bookmarks.py", line 123, in test_bookmark_post_missing_post_id_400
+    self.assertEqual(response.status_code, 400)
+AssertionError: 201 != 400
+
+======================================================================
+FAIL: test_bookmark_post_no_duplicates_400 (tests.test_bookmarks.TestBookmarkListEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_bookmarks.py", line 93, in test_bookmark_post_no_duplicates_400
+    self.assertEqual(response.status_code, 400)
+AssertionError: 201 != 400
+
+======================================================================
+FAIL: test_bookmark_post_unauthorized_post_id_404 (tests.test_bookmarks.TestBookmarkListEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_bookmarks.py", line 118, in test_bookmark_post_unauthorized_post_id_404
+    self.assertEqual(response.status_code, 404)
+AssertionError: 201 != 404
+
+======================================================================
+FAIL: test_comment_delete_invalid_id_404 (tests.test_comments.TestCommentDetailEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_comments.py", line 98, in test_comment_delete_invalid_id_404
+    self.assertEqual(response.status_code, 404)
+AssertionError: 200 != 404
+
+======================================================================
+FAIL: test_comment_delete_unauthorized_id_404 (tests.test_comments.TestCommentDetailEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_comments.py", line 104, in test_comment_delete_unauthorized_id_404
+    self.assertEqual(response.status_code, 404)
+AssertionError: 200 != 404
+
+======================================================================
+FAIL: test_comment_post_invalid_post_id_404 (tests.test_comments.TestCommentListEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_comments.py", line 50, in test_comment_post_invalid_post_id_404
+    self.assertEqual(response.status_code, 404)
+AssertionError: 201 != 404
+
+======================================================================
+FAIL: test_comment_post_invalid_post_id_format_400 (tests.test_comments.TestCommentListEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_comments.py", line 41, in test_comment_post_invalid_post_id_format_400
+    self.assertEqual(response.status_code, 400)
+AssertionError: 201 != 400
+
+======================================================================
+FAIL: test_comment_post_missing_text_400 (tests.test_comments.TestCommentListEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_comments.py", line 69, in test_comment_post_missing_text_400
+    self.assertEqual(response.status_code, 400)
+AssertionError: 201 != 400
+
+======================================================================
+FAIL: test_comment_post_unauthorized_post_id_404 (tests.test_comments.TestCommentListEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_comments.py", line 60, in test_comment_post_unauthorized_post_id_404
+    self.assertEqual(response.status_code, 404)
+AssertionError: 201 != 404
+
+======================================================================
+FAIL: test_comment_post_valid_request_201 (tests.test_comments.TestCommentListEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_comments.py", line 23, in test_comment_post_valid_request_201
+    self.assertEqual(new_comment.get('post_id'), body.get('post_id'))
+AssertionError: None != 106
+
+======================================================================
+FAIL: test_following_delete_invalid_id_404 (tests.test_following.TestFollowingDetailEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_following.py", line 134, in test_following_delete_invalid_id_404
+    self.assertEqual(response.status_code, 404)
+AssertionError: 200 != 404
+
+======================================================================
+FAIL: test_following_delete_unauthorized_id_404 (tests.test_following.TestFollowingDetailEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_following.py", line 141, in test_following_delete_unauthorized_id_404
+    self.assertEqual(response.status_code, 404)
+AssertionError: 200 != 404
+
+======================================================================
+FAIL: test_following_delete_valid_200 (tests.test_following.TestFollowingDetailEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_following.py", line 119, in test_following_delete_valid_200
+    self.assertEqual(following_db, [])
+AssertionError: {'id': 111, 'user_id': 12, 'following_id': 23} != []
+
+======================================================================
+FAIL: test_following_post_invalid_user_id_404 (tests.test_following.TestFollowingListEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_following.py", line 95, in test_following_post_invalid_user_id_404
+    self.assertEqual(response.status_code, 404)
+AssertionError: 201 != 404
+
+======================================================================
+FAIL: test_following_post_invalid_user_id_format_400 (tests.test_following.TestFollowingListEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_following.py", line 87, in test_following_post_invalid_user_id_format_400
+    self.assertEqual(response.status_code, 400)
+AssertionError: 201 != 400
+
+======================================================================
+FAIL: test_following_post_missing_user_id_400 (tests.test_following.TestFollowingListEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_following.py", line 100, in test_following_post_missing_user_id_400
+    self.assertEqual(response.status_code, 400)
+AssertionError: 201 != 400
+
+======================================================================
+FAIL: test_following_post_no_duplicates_400 (tests.test_following.TestFollowingListEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_following.py", line 79, in test_following_post_no_duplicates_400
+    self.assertEqual(response.status_code, 400)
+AssertionError: 201 != 400
+
+======================================================================
+FAIL: test_like_post_invalid_post_id_404 (tests.test_like_post.TestLikePostListEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_like_post.py", line 51, in test_like_post_invalid_post_id_404
+    self.assertEqual(response.status_code, 404)
+AssertionError: 201 != 404
+
+======================================================================
+FAIL: test_like_post_invalid_post_id_format_400 (tests.test_like_post.TestLikePostListEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_like_post.py", line 46, in test_like_post_invalid_post_id_format_400
+    self.assertEqual(response.status_code, 400)
+AssertionError: 201 != 400
+
+======================================================================
+FAIL: test_like_post_no_duplicates_400 (tests.test_like_post.TestLikePostListEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_like_post.py", line 41, in test_like_post_no_duplicates_400
+    self.assertEqual(response.status_code, 400)
+AssertionError: 201 != 400
+
+======================================================================
+FAIL: test_like_post_unauthorized_post_id_404 (tests.test_like_post.TestLikePostListEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_like_post.py", line 58, in test_like_post_unauthorized_post_id_404
+    self.assertEqual(response.status_code, 404)
+AssertionError: 201 != 404
+
+======================================================================
+FAIL: test_like_post_valid_request_201 (tests.test_like_post.TestLikePostListEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_like_post.py", line 22, in test_like_post_valid_request_201
+    self.assertEqual(new_like.get('post_id'), post_id)
+AssertionError: None != 9
+
+======================================================================
+FAIL: test_post_delete_id_does_not_exist_404 (tests.test_posts.TestPostDetailEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_posts.py", line 215, in test_post_delete_id_does_not_exist_404
+    self.assertEqual(response.status_code, 404)
+AssertionError: 200 != 404
+
+======================================================================
+FAIL: test_post_patch_blanks_not_overwritten (tests.test_posts.TestPostDetailEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_posts.py", line 164, in test_post_patch_blanks_not_overwritten
+    self.assertEqual(new_post.get('image_url'), body.get('image_url'))
+AssertionError: None != 'https://picsum.photos/600/430?id=223'
+
+======================================================================
+FAIL: test_post_patch_correct_data_200 (tests.test_posts.TestPostDetailEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_posts.py", line 139, in test_post_patch_correct_data_200
+    self.assertEqual(new_post.get('image_url'), body.get('image_url'))
+AssertionError: None != 'https://picsum.photos/600/430?id=33'
+
+======================================================================
+FAIL: test_post_patch_id_does_not_exist_404 (tests.test_posts.TestPostDetailEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_posts.py", line 184, in test_post_patch_id_does_not_exist_404
+    self.assertEqual(response.status_code, 404)
+AssertionError: 200 != 404
+
+======================================================================
+FAIL: test_post_post (tests.test_posts.TestPostListEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_posts.py", line 68, in test_post_post
+    self.assertEqual(new_post.get('image_url'), body.get('image_url'))
+AssertionError: None != 'https://picsum.photos/600/430?id=668'
+
+======================================================================
+FAIL: test_post_post_bad_data_400_error (tests.test_posts.TestPostListEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_posts.py", line 115, in test_post_post_bad_data_400_error
+    self.assertEqual(response.status_code, 400)
+AssertionError: 201 != 400
+
+======================================================================
+FAIL: test_post_post_image_only (tests.test_posts.TestPostListEndpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/hayden/Documents/csci344/homework/homework07/tests/test_posts.py", line 94, in test_post_post_image_only
+    self.assertEqual(new_post.get('image_url'), body.get('image_url'))
+AssertionError: None != 'https://picsum.photos/600/430?id=668'
+
+----------------------------------------------------------------------
+Ran 62 tests in 0.982s
+
+FAILED (failures=31, errors=7)
