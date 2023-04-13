@@ -1,6 +1,6 @@
 from flask import Response, request
 from flask_restful import Resource
-from models import Post, db, Following
+from models import Post, Bookmark, db, Following
 from views import get_authorized_user_ids
 
 import json
@@ -90,11 +90,11 @@ class PostDetailEndpoint(Resource):
         except ValueError:
             return f"BAD REQUEST: Expecting post id as int", 404
         post = Post.query.get(post_id)
-        # body = request.get_json()
-        # print(body, post)
         if post is not None:
             if post.user_id != self.current_user.id:
                 return f"Unable to access post with id:{id}", 404
+            # bookmarks = Bookmark.query.filter(Bookmark.post_id == post_id).all()
+            # db.session.delete(bookmarks)
             db.session.delete(post)
             db.session.commit()
         else:
