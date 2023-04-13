@@ -19,7 +19,24 @@ class FollowingListEndpoint(Resource):
         # create a new "following" record based on the data posted in the body 
         body = request.get_json()
         print(body)
-        return Response(json.dumps({}), mimetype="application/json", status=201)
+        user_id = body.get('user_id')
+        try:
+            if not user_id:
+                raise
+            user_id = int(user_id)
+        except:
+            return "BAD REQUEST", 400
+        user = User.query.get(user_id)
+        if user is None:
+            return "BAD REQUEST: unknown user_id", 404
+        following = Following.query.filter(Following.user_id == self.current_user.id).all()
+        following_ids = (follow.following_id for follow in following)
+        if user_id in following_ids:
+            return "BAD REQUEST: already following user", 400
+        follow = Following(user_id=self.current_user.id, following_id=user_id)
+        db.session.add(follow)
+        db.session.commit()
+        return Response(json.dumps(follow.to_dict_following()), mimetype="application/json", status=201)
 
 class FollowingDetailEndpoint(Resource):
     def __init__(self, current_user):
@@ -28,7 +45,14 @@ class FollowingDetailEndpoint(Resource):
     def delete(self, id):
         # delete "following" record where "id"=id
         print(id)
-        return Response(json.dumps({}), mimetype="application/json", status=200)
+        follow = Following.query.get(id)
+        if follow is None:
+            return "BAD REQUEST: follow not found", 404
+        if follow.user_id != self.current_user.id:
+            return "BAD REQUEST: unauthorized", 404
+        db.session.delete(follow)
+        db.session.commit()
+        return Response(json.dumps({"text": "Removed Following"}), mimetype="application/json", status=200)
 
 
 
