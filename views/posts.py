@@ -93,8 +93,9 @@ class PostDetailEndpoint(Resource):
         if post is not None:
             if post.user_id != self.current_user.id:
                 return f"Unable to access post with id:{id}", 404
-            # bookmarks = Bookmark.query.filter(Bookmark.post_id == post_id).all()
-            # db.session.delete(bookmarks)
+            bookmarks = Bookmark.query.filter(Bookmark.post_id == post_id).all()
+            for bookmark in bookmarks:
+                db.session.delete(bookmark)
             db.session.delete(post)
             db.session.commit()
         else:
