@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 load_dotenv()
-from flask import Flask, request
+from flask import request
 from flask_restful import Api
 from flask_cors import CORS
 from flask import render_template
@@ -9,12 +9,20 @@ from sqlalchemy import and_
 from models import db, Post, User, Following, ApiNavigator, Story
 from views import initialize_routes, get_authorized_user_ids
 import flask_jwt_extended
+from lib.flask_multistatic import MultiStaticFlask as Flask
+from flask import send_from_directory
+import decorators
 
 
 app = Flask(__name__)
 cors = CORS(app,
             resources={r"/api/*": {"origins": "*"}},
             supports_credentials=True)
+
+app.static_folder = [
+    os.path.join(app.root_path, 'react-client', 'build', 'static'),
+    os.path.join(app.root_path, 'static')
+]
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URL')
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
@@ -44,14 +52,12 @@ initialize_routes(api)
 
 # Server-side template for the homepage:
 @app.route('/')
+@decorators.jwt_or_login
 def home():
-    return '''
-       <p>View <a href="/api">REST API Tester</a>.</p>
-       <p>Feel free to replace this code from HW2</p>
-    '''
-
+    return send_from_directory(app.root_path + '/react-client/build', 'index.html')
 
 @app.route('/api')
+@decorators.jwt_or_login
 def api_docs():
     navigator = ApiNavigator(app.current_user)
     return render_template(
