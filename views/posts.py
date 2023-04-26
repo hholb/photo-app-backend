@@ -1,4 +1,5 @@
 from flask import Response, request
+import flask_jwt_extended
 from flask_restful import Resource
 from models import Post, Bookmark, db, Following
 from views import get_authorized_user_ids
@@ -12,11 +13,13 @@ def get_path():
 
 class PostListEndpoint(Resource):
 
+    @flask_jwt_extended.jwt_required()
     def __init__(self, current_user):
         self.current_user = current_user
         self.auth_users = get_authorized_user_ids(self.current_user)
         self.auth_users.append(self.current_user.id)
 
+    @flask_jwt_extended.jwt_required()
     def get(self):
         # get posts created by one of these users:
         if request.args.get('limit') is not None:
@@ -33,6 +36,7 @@ class PostListEndpoint(Resource):
             self.auth_users)).limit(num_posts).all()
         return Response(json.dumps([post.to_dict() for post in posts]), mimetype="application/json", status=200)
 
+    @flask_jwt_extended.jwt_required()
     def post(self):
         # create a new post based on the data posted in the body
         body = request.get_json()
@@ -54,11 +58,13 @@ class PostListEndpoint(Resource):
 
 class PostDetailEndpoint(Resource):
 
+    @flask_jwt_extended.jwt_required()
     def __init__(self, current_user):
         self.current_user = current_user
         self.auth_users = get_authorized_user_ids(self.current_user)
         self.auth_users.append(self.current_user.id)
 
+    @flask_jwt_extended.jwt_required()
     def patch(self, id):
         # update post based on the data posted in the body
         post = Post.query.get(id)
@@ -83,6 +89,7 @@ class PostDetailEndpoint(Resource):
             return f"BAD REQUEST: No post with id {id} found.", 404
         return Response(json.dumps(post.to_dict()), mimetype="application/json", status=200)
 
+    @flask_jwt_extended.jwt_required()
     def delete(self, id):
         # delete post where "id"=id
         try:
@@ -102,6 +109,7 @@ class PostDetailEndpoint(Resource):
             return f"BAD REQUEST: No post with id {id} found.", 404
         return Response(json.dumps({"text": f"Post with id {id} deleted."}), mimetype="application/json", status=200)
 
+    @flask_jwt_extended.jwt_required()
     def get(self, id):
         # get the post based on the id
         post = Post.query.get(id)
@@ -117,10 +125,10 @@ def initialize_routes(api):
     api.add_resource(
         PostListEndpoint,
         '/api/posts', '/api/posts/',
-        resource_class_kwargs={'current_user': api.app.current_user}
+        resource_class_kwargs={'current_user': flask_jwt_extended.current_user}
     )
     api.add_resource(
         PostDetailEndpoint,
         '/api/posts/<int:id>', '/api/posts/<int:id>/',
-        resource_class_kwargs={'current_user': api.app.current_user}
+        resource_class_kwargs={'current_user': flask_jwt_extended.current_user}
     )

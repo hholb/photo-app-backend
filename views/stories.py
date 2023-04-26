@@ -1,4 +1,5 @@
 from flask import Response
+import flask_jwt_extended
 from flask_restful import Resource
 from models import Story
 from views import get_authorized_user_ids
@@ -6,9 +7,11 @@ import json
 
 class StoriesListEndpoint(Resource):
 
+    @flask_jwt_extended.jwt_required()
     def __init__(self, current_user):
         self.current_user = current_user
     
+    @flask_jwt_extended.jwt_required()
     def get(self):
         # get stories created by one of these users:
         # print(get_authorized_user_ids(self.current_user))
@@ -23,5 +26,5 @@ def initialize_routes(api):
         StoriesListEndpoint, 
         '/api/stories', 
         '/api/stories/', 
-        resource_class_kwargs={'current_user': api.app.current_user}
+        resource_class_kwargs={'current_user': flask_jwt_extended.current_user}
     )

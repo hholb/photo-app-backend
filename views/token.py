@@ -18,7 +18,19 @@ class AccessTokenEndpoint(Resource):
         access_token = flask_jwt_extended.create_access_token(identity=user.id)
         refresh_token = flask_jwt_extended.create_refresh_token(identity=user.id)
         '''
-        return 'Implement me!'
+        if not body.get('username') or not body.get('password'):
+            return "BAD REQUEST: username and password required", 401
+        user = User.query.filter_by(username=body.get('username')).one_or_none()
+        if user == None:
+            return "BAD REQUEST: user not found", 401
+        if body.get("password") != user.password_plaintext:
+            return "UNAUTHORIZED REQUEST: incorrect password", 401
+        access_token = flask_jwt_extended.create_access_token(identity=user.id)
+        refresh_token = flask_jwt_extended.create_refresh_token(identity=user.id)
+        return Response(json.dumps({
+            "access_token": access_token,
+            "refresh_token": refresh_token,
+        }), status=200)
 
 
 class RefreshTokenEndpoint(Resource):
